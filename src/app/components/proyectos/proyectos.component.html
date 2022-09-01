@@ -1,0 +1,92 @@
+<div class="modal fade" id="agregarProyecto" tabindex="-1" aria-labelledby="agregarProyectoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarProyectoLabel">Agregar proyecto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <form class="text-center border border-light p-5" (ngSubmit)="onCreate()" novalidate #f="ngForm">
+        <div class="mb-3">
+          <div class="modal-body">
+            <label for="nombre" class="col-form-label">nombre:</label>
+            <input for="nombre" type="text" class="form-control mb-3" id="nombre" name="nombre" [(ngModel)]="nombre"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="imagen" class=col-form-label>imagen:</label>
+            <textarea for="imagen" id="imagen" name="imagen" class="form-control" [(ngModel)]="imagen"
+              required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="informacion" class=col-form-label>informacion:</label>
+            <textarea for="informacion" id="informacion" name="informacion" class="form-control"
+              [(ngModel)]="informacion" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="enlace" class=col-form-label>enlace:</label>
+            <textarea for="enlace" id="enlace" name="enlace" class="form-control" [(ngModel)]="enlace"
+              required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" onClick="window.location.reload();" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="agregarProyecto1" tabindex="-1" aria-labelledby="agregarProyecto1Label"
+  *ngFor="let Proyectos of proyectos" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarProyecto1Label">Informacion del proyecto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <form class="text-center border border-light p-5">
+        <div class="mb-3">
+          <div class="modal-body">
+            <label for="nombre" class="col-form-label"></label>
+            <input for="nombre" type="text" class="form-control mb-3" id="nombre" name="nombre"
+              placeholder="{{Proyectos.nombre}}" required>
+          </div>
+          <div class="mb-3">
+            <label for="informacion" class=col-form-label>informacion1:</label>
+            <textarea for="informacion" id="informacion" name="informacion" class="form-control"
+              placeholder="{{Proyectos.informacion}}" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<main id="main">
+  <section id="proyectos" class="portfolio section-bg">
+    <div class="container">
+      <div class="section-title" data-aos="fade-right" data-aos-delay="300" data-aos-duration="3000">
+        <i *ngIf="isLogged" class="bi bi-pencil-square" data-bs-toggle="modal"
+          data-bs-target="#agregarProyecto">Agregar</i>
+        <h2>Proyectos</h2>
+      </div>
+      <div class="row portfolio-container" data-aos="fade-left" data-aos-delay="300" data-aos-duration="3000">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app" *ngFor="let Proyectos of proyectos">
+          <div class="portfolio-wrap">
+            <img src="{{Proyectos.imagen}}" class="img-fluid" alt="">
+            <div class="portfolio-links">
+              <a href="/info/{{Proyectos.id}}" routerLink="/info/{{Proyectos.id}}" class="portfolio-lightbox"
+                title="+Info"><i class="bx bx-plus"></i></a>
+              <a href="{{Proyectos.enlace}}" title="Link"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+          <i *ngIf="isLogged" class="bi bi-trash" (click)="delete(Proyectos.id)">Borrar</i>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

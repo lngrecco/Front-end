@@ -1,0 +1,74 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <form class="text-center border border-light p-5" (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editar">Editar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="nombre" class="col-form-label">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" for="nombre" name="nombre" [(ngModel)]="persona.nombre"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="apellido" class="col-form-label">Apellido:</label>
+          <input type="text" class="form-control" id="apellido" for="apellido" name="apellido"
+            [(ngModel)]="persona.apellido" required>
+        </div>
+        <div class="mb-3">
+          <label for="profesion" class="col-form-label">Profesion:</label>
+          <input type="text" class="form-control" id="profesion" for="profesion" name="profesion"
+            [(ngModel)]="persona.profesion" required>
+        </div>
+        <div class="mb-3">
+          <label for="fecha" class="col-form-label">Fecha de nacimiento:</label>
+          <input type="text" class="form-control" id="fecha" for="fecha" name="fecha" [(ngModel)]="persona.fecha"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="nacionalidad" class="col-form-label">Nacionalidad:</label>
+          <input type="text" class="form-control" id="nacionalidad" for="nacionalidad" name="nacionalidad"
+            [(ngModel)]="persona.nacionalidad" required>
+        </div>
+        <div class="mb-3">
+          <label for="ciudad" class="col-form-label">Ciudad actual:</label>
+          <input type="text" class="form-control" id="ciudad" for="ciudad" name="ciudad" [(ngModel)]="persona.ciudad"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="direccion" class="col-form-label">Direccion:</label>
+          <input type="text" class="form-control" id="direccion" for="direccion" name="direccion"
+            [(ngModel)]="persona.direccion" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="col-form-label">Telefono:</label>
+          <input type="text" class="form-control" id="telefono" for="telefono" name="telefono"
+            [(ngModel)]="persona.telefono" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="col-form-label">Email:</label>
+          <input type="text" class="form-control" id="email" for="email" name="email" [(ngModel)]="persona.email"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="img" class="col-form-label">Imagen:</label>
+          <input type="text" class="form-control" id="img" for="img" name="img" [(ngModel)]="persona.img" required>
+        </div>
+        <div class="mb-3">
+          <label for="acerca" class="col-form-label">texto1:</label>
+          <input type="text" class="form-control" id="acerca" for="acerca" name="acerca" [(ngModel)]="persona.acerca"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="demi" class="col-form-label">texto2:</label>
+          <input type="text" class="form-control" id="demi" for="demi" name="demi" [(ngModel)]="persona.demi" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="modal fade" id="agregarEducacion" tabindex="-1" aria-labelledby="agregarEducacionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarEducacionLabel">Agregar educacion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <form class="text-center border border-light p-5" (ngSubmit)="onCreate()" novalidate #f="ngForm">
+        <div class="mb-3">
+          <div class="modal-body">
+            <label for="nombreE" class="col-form-label">Nombre de la institucion:</label>
+            <input for="nombreE" type="text" class="form-control mb-3" id="nombreE" name="nombreE" [(ngModel)]="nombreE"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="tituloE" class=col-form-label>Titulo:</label>
+            <textarea for="tituloE" id="tituloE" name="tituloE" class="form-control" [(ngModel)]="tituloE"
+              required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="descripcionE" class=col-form-label>Descripcion:</label>
+            <textarea for="descripcionE" id="descripcionE" name="descripcionE" class="form-control"
+              [(ngModel)]="descripcionE" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="fechaE" class=col-form-label>Fecha:</label>
+            <textarea for="fechaE" id="fechaE" name="fechaE" class="form-control" [(ngModel)]="fechaE"
+              required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="localidadE" class=col-form-label>Localidad/Modalidad de la institucion:</label>
+            <textarea for="localidadE" id="localidadE" name="localidadE" class="form-control" [(ngModel)]="localidadE"
+              required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="contactoE" class=col-form-label>Contacto:</label>
+            <textarea for="contactoE" id="contactoE" name="contactoE" class="form-control" [(ngModel)]="contactoE"
+              required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" onClick="window.location.reload();" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+  <section id="educacion" class="resume">
+    <div class="container">
+      <div class="section-title" data-aos="fade-down" data-aos-duration="3000">
+        <i *ngIf="isLogged" class="bi bi-pencil-square" data-bs-toggle="modal"
+          data-bs-target="#agregarEducacion">Agregar</i>
+        <h2>Educacion</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="3000" *ngFor="let Educacion of edu">
+          <div>
+            <h3 class="resume-title">{{Educacion.nombreE}}</h3>
+            <div class="resume-item pb-0">
+              <h4>{{Educacion.tituloE}}</h4>
+              <p><em>{{Educacion.descripcionE}}</em></p>
+              <ul>
+                <li>{{Educacion.fechaE}}</li>
+                <li>{{Educacion.localidadE}}</li>
+                <li>{{Educacion.contactoE}}</li>
+              </ul>
+            </div>
+          </div>
+          <i *ngIf="isLogged" routerLink="/editedu/{{Educacion.id}}" class="bi bi-pencil-square">Editar</i>
+          <i *ngIf="isLogged" class="bi bi-trash" (click)="delete(Educacion.id)">Borrar</i>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

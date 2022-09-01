@@ -1,0 +1,40 @@
+<header id="header">
+  <div class="d-flex flex-column">
+    <div class="profile">
+      <img src="{{persona.img}}" alt="" class="img-fluid rounded-circle">
+      <h1 class="text-light"><a href="index.html">{{persona.nombre}} {{persona.apellido}}</a></h1>
+      <div class="social-links mt-3 text-center">
+        <a href="http://www.twitter.com" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="http://www.facebook.com" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="http://www.instagram.com" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="http://www.google-plus.com" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="http://www.linkedin.com" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+    <nav id="navbar" class="nav-menu navbar">
+      <ul>
+        <li><a href="#hero" class="nav-link scrollto "><i class="bx bx-home"></i> <span>Inicio</span></a></li>
+        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Acerca de mi</span></a></li>
+        <li><a href="#educacion" class="nav-link scrollto"><i class="bx bx-book-bookmark"></i>
+            <span>Educacion</span></a></li>
+        <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-slider"></i> <span>Habilidades</span></a></li>
+        <li><a href="#experiencia" class="nav-link scrollto"><i class="bx bxs-briefcase"></i>
+            <span>Experiencia</span></a></li>
+        <li><a href="#proyectos" class="nav-link scrollto"><i class="bx bx-network-chart"></i>
+            <span>Proyectos</span></a></li>
+        <li><a href="login" *ngIf="!isLogged" class="nav-link scrollto"><i class="bx bx-log-in"></i> <span>Iniciar
+              sesion</span></a></li>
+        <li><a href="#hero" (click)="onLogOut()" *ngIf="isLogged" class="nav-link scrollto"><i class="bx bx-log-in"></i>
+            <span>Cerrar sesion</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <div class="hero-container">
+    <h1>My Portfolio web</h1>
+    <ngx-typed-js [strings]="['Argentina programa', '#Yoprogramo']" [loop]="true" [typeSpeed]="90" [backSpeed]="50">
+      <p><span class="typed" class="typing"></span></p>
+    </ngx-typed-js>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+<div class="modal-dialog" class="mb-md-5 mt-md-4 pb-5">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="editarEducacionLabel">Editar educacion
+      </h5>
+    </div>
+    <form (ngSubmit)="onUpdate(educ.id)" novalidate #f="ngForm">
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="nombreE" class="col-form-label">Nombre de la intitucion:{{educ.id}}</label>
+          <input type="text" class="form-control" id="nombreE" name="nombreE" for="nombreE" [(ngModel)]="educ.nombreE"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="tituloE" class=col-form-label>Titulo:</label>
+          <textarea for="tituloE" id="tituloE" name="tituloE" class="form-control" [(ngModel)]="educ.tituloE"
+            required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="descripcionE" class="col-form-label">Descripcion:</label>
+          <textarea for="descripcionE" type="text" class="form-control" id="descripcionE" for="descripcionE"
+            name="descripcionE" [(ngModel)]="educ.descripcionE" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="fechaE" class="col-form-label">Fecha:</label>
+          <textarea for="fechaE" type="text" class="form-control" id="fechaE" name="fechaE" [(ngModel)]="educ.fechaE"
+            required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="localidadE" class=col-form-label>Localidad/Modalidad de la institucion:</label>
+          <textarea for="localidadE" id="localidadE" name="localidadE" class="form-control"
+            [(ngModel)]="educ.localidadE" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="contactoE" class=col-form-label>Contacto:</label>
+          <textarea for="contactoE" id="contactoE" name="contactoE" class="form-control" [(ngModel)]="educ.contactoE"
+            required></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="reload()">Cancelar</button>
+        <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="modal fade" id="agregarHabilidad" tabindex="-1" aria-labelledby="agregarHabilidadLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="agregarHabilidadLabel">Agregar habilidad</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <form class="text-center border border-light p-5" (ngSubmit)="onCreate()" novalidate #f="ngForm">
+        <div class="mb-3">
+          <div class="modal-body">
+            <label for="habilidad" class="col-form-label">Habilidad:</label>
+            <input for="habilidad" type="text" class="form-control mb-3" id="habilidad" name="habilidad"
+              [(ngModel)]="habilidad" required>
+          </div>
+          <div class="mb-3">
+            <label for="porcentaje" class=col-form-label>Desempeño:</label>
+            <input type="range" for="porcentaje" id="porcentaje" name="porcentaje" class="form-control"
+              [(ngModel)]="porcentaje" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" onClick="window.location.reload();" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+  <section id="skills" class="skills section-bg">
+    <div class="container">
+      <div class="section-title" data-aos="fade-down" data-aos-duration="3000">
+        <i *ngIf="isLogged" class="bi bi-pencil-square" data-bs-toggle="modal"
+          data-bs-target="#agregarHabilidad">Agregar</i>
+        <h2>Habilidades</h2>
+      </div>
+      <div class="row skills-content">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="3000" *ngFor="let Habilidades of habilidades">
+          <div class="progress">
+            <span class="skill">{{Habilidades.habilidad}}<i class="val">{{Habilidades.porcentaje}}%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" style="width:{{Habilidades.porcentaje}}%" aria-valuenow=""
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <i *ngIf="isLogged" class="bi bi-trash" (click)="delete(Habilidades.id)">Borrar</i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
