@@ -1,4 +1,5 @@
-<div class="modal fade" id="agregarProyecto" tabindex="-1" aria-labelledby="agregarProyectoLabel" aria-hidden="true">
+<div  class="modal fade" id="agregarProyecto" tabindex="-1"
+  aria-labelledby="agregarProyectoLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,22 +9,21 @@
       <form class="text-center border border-light p-5" (ngSubmit)="onCreate()" novalidate #f="ngForm">
         <div class="mb-3">
           <div class="modal-body">
-            <label for="nombre" class="col-form-label">nombre:</label>
+            <label for="nombre" class="col-form-label">Nombre:</label>
             <input for="nombre" type="text" class="form-control mb-3" id="nombre" name="nombre" [(ngModel)]="nombre"
               required>
           </div>
           <div class="mb-3">
-            <label for="imagen" class=col-form-label>imagen:</label>
-            <textarea for="imagen" id="imagen" name="imagen" class="form-control" [(ngModel)]="imagen"
-              required></textarea>
+            <label for="imagen" class=col-form-label>URL de la imagen:</label>
+            <input type="text" for="imagen" id="imagen" name="imagen" class="form-control" [(ngModel)]="imagen">
           </div>
           <div class="mb-3">
-            <label for="informacion" class=col-form-label>informacion:</label>
+            <label for="informacion" class=col-form-label>Informacion:</label>
             <textarea for="informacion" id="informacion" name="informacion" class="form-control"
               [(ngModel)]="informacion" required></textarea>
           </div>
           <div class="mb-3">
-            <label for="enlace" class=col-form-label>enlace:</label>
+            <label for="enlace" class=col-form-label>Enlace:</label>
             <textarea for="enlace" id="enlace" name="enlace" class="form-control" [(ngModel)]="enlace"
               required></textarea>
           </div>
@@ -37,33 +37,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="agregarProyecto1" tabindex="-1" aria-labelledby="agregarProyecto1Label"
-  *ngFor="let Proyectos of proyectos" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="agregarProyecto1Label">Informacion del proyecto</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <form class="text-center border border-light p-5">
-        <div class="mb-3">
-          <div class="modal-body">
-            <label for="nombre" class="col-form-label"></label>
-            <input for="nombre" type="text" class="form-control mb-3" id="nombre" name="nombre"
-              placeholder="{{Proyectos.nombre}}" required>
-          </div>
-          <div class="mb-3">
-            <label for="informacion" class=col-form-label>informacion1:</label>
-            <textarea for="informacion" id="informacion" name="informacion" class="form-control"
-              placeholder="{{Proyectos.informacion}}" required></textarea>
-          </div>
-        </div>
-        <div class="modal-footer">
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+
 
 
 <main id="main">

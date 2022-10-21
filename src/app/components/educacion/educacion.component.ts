@@ -19,7 +19,7 @@ export class EducacionComponent implements OnInit {
   localidadE: string= '';
   contactoE: string= '';
   edu: Educacion[] = [];
-  educa: Educacion= null;
+  
 
   
   constructor(private educacionS: EducacionService, private tokenService: TokenService, private router: Router, private activatedRouter: ActivatedRoute) { }

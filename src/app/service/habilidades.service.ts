@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Habilidades } from 'src/app/model/habilidades';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HabilidadesService {
-  URL= 'http://localhost:8080/habilidades/'
+  URL= environment.URL + 'habilidades/'
 
   constructor(private httpClient: HttpClient) { } 
 

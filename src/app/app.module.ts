@@ -25,6 +25,9 @@ import { EditEducacionComponent } from './components/educacion/edit-educacion.co
 import {EditAcercadeComponent} from './components/acerca-de/edit-acercade.component'
 import {NgxTypedJsModule} from 'ngx-typed-js';
 import { InfoComponent } from './components/proyectos/info.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
 
@@ -57,7 +60,9 @@ import { InfoComponent } from './components/proyectos/info.component';
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
     ReactiveFormsModule,
-    NgxTypedJsModule
+    NgxTypedJsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
 
 
     

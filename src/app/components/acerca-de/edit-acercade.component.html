@@ -53,7 +53,10 @@
         </div>
         <div class="mb-3">
           <label for="img" class="col-form-label">Imagen:</label>
-          <input type="text" class="form-control" id="img" for="img" name="img" [(ngModel)]="persona.img" required>
+          <input type="file" class="form-control" id="img" for="img" name="img" [(ngModel)]="persona.img" (change)="uploadImg($event)">
+        </div>
+        <div class="imagen">
+           <img [src]="imgService.url" width="200px">
         </div>
         <div class="mb-3">
           <label for="acerca" class="col-form-label">texto1:</label>
@@ -66,7 +69,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" (click)="reload()" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
         <button type="submit" class="btn btn-primary">Guardar</button>
       </div>
     </form>
